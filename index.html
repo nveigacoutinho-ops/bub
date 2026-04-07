@@ -110,65 +110,162 @@
       padding: 80px 0;
     }
 
+    .hero-pill {
+      display: inline-block;
+      background: var(--accent-muted);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
     .hero-header {
-      text-align: center;
-      margin-bottom: 60px;
+      text-align: left;
+      margin-bottom: 40px;
     }
 
     .hero-header h1 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 16px;
-      background: linear-gradient(135deg, var(--text) 0%, var(--text2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--text);
+      line-height: 1.15;
+    }
+
+    .hero-header h1 .accent-word {
+      color: var(--accent);
     }
 
     .hero-header p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--text2);
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 620px;
+      line-height: 1.7;
     }
 
-    .mental-model {
+    .hero-header p strong {
+      color: var(--text);
+    }
+
+    .hero-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 40px 0;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .hero-two-col { grid-template-columns: 1fr; }
+      .hero-header h1 { font-size: 2rem; }
+    }
+
+    .hero-col-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 40px;
-      margin: 60px 0;
-      text-align: center;
+      padding: 24px;
+    }
+
+    .hero-col-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .hero-col-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-yellow { background: var(--yellow); }
+    .dot-orange { background: var(--accent); }
+
+    .hero-col-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .hero-col-desc {
+      font-size: 0.82rem;
+      color: var(--text2);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .mental-model {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
     }
 
     .mm-layer {
-      display: inline-block;
       background: var(--surface2);
       border: 2px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 20px 40px;
-      margin: 16px 0;
+      padding: 14px 20px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
+      width: 100%;
       position: relative;
-      min-width: 200px;
     }
 
-    .mm-layer:nth-child(1) { border-color: var(--accent); }
-    .mm-layer:nth-child(2) { border-color: var(--blue); }
-    .mm-layer:nth-child(3) { border-color: var(--green); }
+    .mm-layer.layer-brain { border-color: var(--accent); }
+    .mm-layer.layer-codespace { border-color: #e05555; }
+    .mm-layer.layer-github { border-color: var(--green); }
 
-    .mm-arrow {
-      font-size: 2rem;
-      color: var(--text3);
-      margin: 8px 0;
+    .mm-layer-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text);
     }
 
     .mm-label {
       font-size: 0.75rem;
       color: var(--text3);
-      margin-top: 8px;
+      margin-top: 4px;
       font-weight: 400;
+    }
+
+    .mm-arrow {
+      font-size: 1.1rem;
+      color: var(--text3);
+      margin: 4px 0;
+      text-align: center;
+    }
+
+    .mm-push-pull {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mm-push-pull span {
+      font-size: 0.72rem;
+      font-family: var(--mono);
+      color: var(--accent);
+      background: var(--accent-muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .hero-file-tree-note {
+      font-size: 0.72rem;
+      color: var(--text3);
+      font-style: italic;
+      margin-top: 12px;
     }
 
     .file-tree {
@@ -1017,66 +1114,90 @@
   <section id="hero">
     <div class="container">
       <div class="hero-header">
-        <h1>GitHub & Codespaces for PharmaBot</h1>
-        <p>Everything you need to know to collaborate on code with your teammate.</p>
+        <div class="hero-pill">✦ For two beginners collaborating on a real project</div>
+        <h1>GitHub &amp; Codespaces<br>for <span class="accent-word">PharmaBot</span></h1>
+        <p>A complete manual covering everything you need to build, collaborate, and ship — from opening your first Codespace to merging pull requests like a pro. All <strong>15</strong> parts, every command, zero <strong>fluff</strong>.</p>
       </div>
 
-      <div class="mental-model">
-        <div class="mm-layer">
-          🧠 Brain
-          <div class="mm-label">Your thoughts (intent)</div>
+      <div class="hero-two-col">
+        <!-- Left: Mental Model -->
+        <div class="hero-col-card">
+          <div class="hero-col-header">
+            <div class="hero-col-dot dot-orange"></div>
+            <div class="hero-col-title">The Mental Model</div>
+          </div>
+          <p class="hero-col-desc">Before touching any commands, understand these three pieces:</p>
+          <div class="mental-model">
+            <div class="mm-layer layer-brain">
+              <div class="mm-layer-title">🧠 Your Brain</div>
+              <div class="mm-label">You, writing code</div>
+            </div>
+            <div class="mm-arrow">↓</div>
+            <div class="mm-layer layer-codespace">
+              <div class="mm-layer-title">💻 Codespace</div>
+              <div class="mm-label">Your online coding desk — lives in the browser. Has terminal, file explorer, etc.</div>
+            </div>
+            <div class="mm-arrow">↓</div>
+            <div class="mm-layer layer-github">
+              <div class="mm-layer-title">☁️ GitHub</div>
+              <div class="mm-label">The shared cloud vault. Both of you can see it. Never loses work.</div>
+            </div>
+            <div class="mm-push-pull">
+              <span>git push = file it</span>
+              <span>git pull = retrieve it</span>
+            </div>
+          </div>
         </div>
-        <div class="mm-arrow">↓</div>
-        <div class="mm-layer">
-          💻 Codespace
-          <div class="mm-label">Where you edit code</div>
-        </div>
-        <div class="mm-arrow">↓</div>
-        <div class="mm-layer">
-          ☁️ GitHub
-          <div class="mm-label">Where work lives (shared)</div>
-        </div>
-      </div>
 
-     <div class="file-tree">
-PharmaBot/<br>
-&nbsp;&nbsp;├── app/<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;├── main.py <span class="comment">← entry point</span><br>
-&nbsp;&nbsp;│&nbsp;&nbsp;├── chatbot.py <span class="comment">← conversation logic</span><br>
-&nbsp;&nbsp;│&nbsp;&nbsp;└── tree_loader.py <span class="comment">← loads JSON files</span><br>
-&nbsp;&nbsp;├── decision_tree/<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;├── jams/<br>
+        <!-- Right: File Tree -->
+        <div class="hero-col-card">
+          <div class="hero-col-header">
+            <div class="hero-col-dot dot-yellow"></div>
+            <div class="hero-col-title">PharmaBot — What You're Building</div>
+          </div>
+          <p class="hero-col-desc">A Python terminal chatbot for pharmacy staff to troubleshoot robot issues — no technician needed. Staff picks an issue → chatbot walks them through questions → ends with: <em>resolved</em> or <em>escalate</em>.</p>
+          <div class="file-tree" style="margin: 0;">
+<span style="color:var(--accent);font-weight:600;">PharmaBot/</span><br>
+&nbsp;&nbsp;├── <span style="color:var(--accent);">app/</span><br>
+&nbsp;&nbsp;│&nbsp;&nbsp;├── main.py <span class="comment">← <em>entry point</em></span><br>
+&nbsp;&nbsp;│&nbsp;&nbsp;├── chatbot.py <span class="comment">← <em>conversation logic</em></span><br>
+&nbsp;&nbsp;│&nbsp;&nbsp;└── tree_loader.py <span class="comment">← <em>loads JSON files</em></span><br>
+&nbsp;&nbsp;├── <span style="color:var(--accent);">decision_tree/</span><br>
+&nbsp;&nbsp;│&nbsp;&nbsp;├── <span style="color:var(--accent);">jams/</span><br>
 &nbsp;&nbsp;│&nbsp;&nbsp;│&nbsp;&nbsp;├── J001_euclid_jam.json<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;│&nbsp;&nbsp;├── J002_automatic_loader_jam.json<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;│&nbsp;&nbsp;└── J003_conveyor_jam.json<br>
-&nbsp;&nbsp;│&nbsp;&nbsp;└── sensors/<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;└── <span style="color:var(--accent);">sensors/</span><br>
 &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── S001_barcode_sensor.json<br>
-&nbsp;&nbsp;├── tests/<br>
+&nbsp;&nbsp;├── <span style="color:var(--accent);">tests/</span><br>
 &nbsp;&nbsp;│&nbsp;&nbsp;├── test_chatbot.py<br>
 &nbsp;&nbsp;│&nbsp;&nbsp;└── test_tree_loader.py<br>
-&nbsp;&nbsp;└── README.md <span class="comment">← your blueprint</span>
-    </div>
+&nbsp;&nbsp;└── README.md <span class="comment">← <em>your blueprint</em></span>
+          </div>
+          <div class="hero-file-tree-note">Gray files = empty skeletons. The structure is clean and ready to build.</div>
+        </div>
+      </div>
 
       <div class="hero-stats">
         <div class="stat-card">
+          <div class="stat-number">15</div>
+          <div class="stat-label">Parts Covered</div>
+        </div>
+        <div class="stat-card">
           <div class="stat-number">2</div>
-          <div class="stat-label">Teammates</div>
+          <div class="stat-label">Team Members</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Main Concepts</div>
+          <div class="stat-number">4</div>
+          <div class="stat-label">JSON Decision Trees</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Git History</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Source of Truth</div>
+          <div class="stat-number">5</div>
+          <div class="stat-label">Python Files to Build</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">0</div>
-          <div class="stat-label">Merge Conflicts (if you follow this)</div>
+          <div class="stat-label">Lines of Code (Yet)</div>
         </div>
       </div>
     </div>
@@ -1166,8 +1287,7 @@ PharmaBot/<br>
       </div>
     </div>
   </section>
-</body>
-</html>
+
   <!-- SECTION 1: SAVE CHAIN -->
   <section id="save-chain">
     <div class="container">
