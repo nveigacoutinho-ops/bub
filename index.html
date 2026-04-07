@@ -1083,6 +1083,452 @@
     .model-card.flexible {
       border-top: 3px solid var(--purple);
     }
+
+    /* Section Container (alias for sections that use class directly) */
+    .section-container {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-container > .section-label,
+    .section-container > h2,
+    .section-container > h3,
+    .section-container > p,
+    .section-container > .two-col,
+    .section-container > .cards-grid,
+    .section-container > .callout,
+    .section-container > .steps-container,
+    .section-container > pre,
+    .section-container > .code-block {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    /* Cards Grid Variants */
+    .cards-grid {
+      display: grid;
+      gap: 20px;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 0 24px;
+    }
+
+    .cards-grid.three-col {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .cards-grid.four-col {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .cards-grid .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all 0.2s;
+    }
+
+    .cards-grid .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .cards-grid .card h4 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .cards-grid .card .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .cards-grid .card p {
+      font-size: 0.9rem;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    /* Steps Container (alternate step layout) */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 0 24px;
+    }
+
+    .steps-container .step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      position: relative;
+    }
+
+    .steps-container .step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 29px;
+      top: 60px;
+      width: 2px;
+      height: calc(100% + 4px);
+      background: var(--border);
+    }
+
+    .steps-container .step .step-number,
+    .step .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .steps-container .step h4 {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .steps-container .step p {
+      margin-bottom: 0;
+      color: var(--text2);
+      font-size: 0.95rem;
+    }
+
+    /* Step body (collaborators section) */
+    .step-body .step-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .step-body .step-desc {
+      margin-bottom: 0;
+      color: var(--text2);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .step-line {
+      display: none;
+    }
+
+    /* Callout Color Variants */
+    .callout.callout-red, .callout.red {
+      background: var(--red-muted);
+      border-color: rgba(248, 113, 113, 0.3);
+    }
+
+    .callout.callout-green, .callout.green {
+      background: var(--green-muted);
+      border-color: rgba(74, 222, 128, 0.3);
+    }
+
+    .callout.callout-blue, .callout.blue {
+      background: var(--blue-muted);
+      border-color: rgba(96, 165, 250, 0.3);
+    }
+
+    .callout.callout-yellow, .callout.yellow {
+      background: var(--yellow-muted);
+      border-color: rgba(251, 191, 36, 0.3);
+    }
+
+    .callout h4 {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    /* Mini Cards (collaboration section) */
+    .mini-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+
+    /* Pill List (team split) */
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    /* Badge Variants */
+    .badge-blue, .col-badge.badge-blue {
+      background: var(--blue-muted);
+      color: var(--blue);
+    }
+
+    .badge-green, .col-badge.badge-green {
+      background: var(--green-muted);
+      color: var(--green);
+    }
+
+    .badge-red, .col-badge.badge-red {
+      background: var(--red-muted);
+      color: var(--red);
+    }
+
+    .badge-purple, .col-badge.badge-purple {
+      background: var(--purple-muted);
+      color: var(--purple);
+    }
+
+    .badge-accent, .pill.badge-accent {
+      background: var(--accent-muted);
+      color: var(--accent);
+      border-color: var(--accent-border);
+    }
+
+    /* Commit list in Commit Messages section */
+    .col-card ul.commit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 12px 0;
+      padding: 0;
+    }
+
+    .col-card ul.commit-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--surface2);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+    }
+
+    .commit-dot-bad, .commit-dot-good {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .commit-dot-bad { background: var(--red); }
+    .commit-dot-good { background: var(--green); }
+
+    .commit-bad {
+      color: var(--red);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+    }
+
+    .commit-good {
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+    }
+
+    /* Command Table (branches section) */
+    .command-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+
+    .command-table th {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .command-table td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      color: var(--text2);
+    }
+
+    /* Status Table */
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .status-table th {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .status-table td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      color: var(--text2);
+      font-size: 0.82rem;
+    }
+
+    /* Interface Table */
+    .iface-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .iface-table th {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .iface-table td {
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      color: var(--text2);
+    }
+
+    /* Pre/Code blocks (for sections using <pre><code>) */
+    pre {
+      background: #0a0a0b;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin: 20px 0;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text2);
+      overflow-x: auto;
+    }
+
+    pre code {
+      color: var(--text2);
+      font-family: inherit;
+      font-size: inherit;
+      background: none;
+      padding: 0;
+    }
+
+    /* Mistake problem line */
+    .mistake-problem {
+      background: #0a0a0b;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--red);
+    }
+
+    /* Code styling classes used in later sections */
+    .cmd { color: var(--accent); }
+    .flag { color: var(--blue); }
+    .str { color: var(--green); }
+    .comment { color: var(--text3); font-style: italic; }
+
+    /* Timeline dots (first-steps section) */
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .tl-person {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .tl-desc {
+      font-size: 0.85rem;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    /* Timeline in first-steps: override to vertical dot layout */
+    #first-steps .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0;
+    }
+
+    #first-steps .tl-item {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 14px;
+      padding-bottom: 0;
+    }
+
+    #first-steps .tl-item:not(:last-child)::after {
+      display: none;
+    }
+
+    /* Person card styles */
+    .col-card.person1 { border-top: 3px solid var(--blue); }
+    .col-card.person2 { border-top: 3px solid var(--green); }
+
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--text2);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* Visible state for fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
   </style>
 </head>
 <body>
@@ -1093,7 +1539,7 @@
       <a href="#save-chain">Save Chain</a>
       <a href="#codespaces">Codespaces</a>
       <a href="#setup">Setup</a>
-      <a href="#daily">Daily Workflow</a>
+      <a href="#golden-workflow">Daily Workflow</a>
       <a href="#branches">Branches</a>
       <a href="#pull-requests">Pull Requests</a>
       <a href="#collaboration">Collaboration</a>
@@ -1642,17 +2088,18 @@ git status                        <span style="color: #fbbf24;"># should say "no
 
 
 <!-- SECTION: Branches -->
-<section id="branches" class="section-container">
-  <div class="section-label">Part 6 · Teamwork Foundation</div>
+<section id="branches">
+  <div class="container">
+  <span class="section-label">Part 6 · Teamwork Foundation</span>
   <h2>Branches — The Most Important Concept for Teamwork</h2>
-  
+
   <div class="two-col">
     <div class="col-card">
       <h3>What is a branch?</h3>
-      <p>A branch is an independent copy of the project that only you work on. Think of main as the official published book that everyone reads. Your branch is your personal draft — you write in your draft, and when it's ready and reviewed, it gets published into the official book.</p>
-      <pre><code>main  ●───────────────────────────────● (stable, always works)
+      <p class="col-card-desc">A branch is an independent copy of the project that only you work on. Think of main as the official published book that everyone reads. Your branch is your personal draft — you write in your draft, and when it's ready and reviewed, it gets published into the official book.</p>
+      <div class="code-block" style="margin-bottom:0;">main  ●───────────────────────────────● (stable, always works)
            \                         /
-feature     ●────●────●────●────●──●   (your work, isolated)</code></pre>
+feature     ●────●────●────●────●──●   (your work, isolated)</div>
     </div>
     
     <div class="col-card">
@@ -1665,8 +2112,8 @@ feature     ●────●────●────●────●─�
   </div>
   
   <h3>When do you create a branch?</h3>
-  
-  <div class="cards-grid three-col">
+
+  <div class="cards">
     <div class="card">
       <div class="card-icon">🧩</div>
       <h4>One branch per task</h4>
@@ -1685,29 +2132,31 @@ feature     ●────●────●────●────●─�
   </div>
   
   <h3>All branch commands you need</h3>
-  
-  <pre><code class="language-bash"># CREATE a new branch (do this for every new task)
+
+  <div class="code-block">
+<span style="color: #fbbf24;"># CREATE a new branch (do this for every new task)</span>
 git checkout -b feature-chatbot-engine
 
-# SEE all branches (* marks the one you're on)
+<span style="color: #fbbf24;"># SEE all branches (* marks the one you're on)</span>
 git branch
 
-# SWITCH to an existing branch
+<span style="color: #fbbf24;"># SWITCH to an existing branch</span>
 git checkout main
 git checkout feature-chatbot-engine
 
-# PUSH branch to GitHub for the first time
+<span style="color: #fbbf24;"># PUSH branch to GitHub for the first time</span>
 git push -u origin feature-chatbot-engine
 
-# After first push, just use:
+<span style="color: #fbbf24;"># After first push, just use:</span>
 git push
 
-# DELETE a branch after it's been merged
-git branch -d feature-chatbot-engine</code></pre>
+<span style="color: #fbbf24;"># DELETE a branch after it's been merged</span>
+git branch -d feature-chatbot-engine
+  </div>
 
   <div class="callout callout-blue">
     <h4>What does git push -u origin feature-chatbot-engine mean?</h4>
-    <table class="command-table">
+    <table>
       <thead>
         <tr>
           <th>Part</th>
@@ -1739,16 +2188,18 @@ git branch -d feature-chatbot-engine</code></pre>
   <div class="callout callout-yellow">
     <strong>⚠️ What happens if both people edit main directly?</strong> Person 1 pushes → fine. Person 2 tries to push → rejected because main has moved on. Person 2 must now pull, fix any conflicts, and push again. This is avoidable entirely by using branches.
   </div>
+  </div>
 </section>
 
 <!-- SECTION: Pull Requests -->
-<section id="pull-requests" class="section-container">
-  <div class="section-label">Part 7 · Code Review</div>
+<section id="pull-requests">
+  <div class="container">
+  <span class="section-label">Part 7 · Code Review</span>
   <h2>Pull Requests — More Than Just Merging</h2>
-  
+
   <p>A Pull Request (PR) is not just a button you click to merge. It's the heart of collaborative coding. It's how two people can work on the same project without stepping on each other — even when working on the same file.</p>
-  
-  <div class="cards-grid four-col">
+
+  <div class="cards">
     <div class="card">
       <div class="card-icon">👁️</div>
       <h4>Review before merging</h4>
@@ -1772,52 +2223,66 @@ git branch -d feature-chatbot-engine</code></pre>
   </div>
   
   <h3>How to create a PR — step by step</h3>
-  
-  <div class="steps-container">
+
+  <div class="steps">
     <div class="step">
-      <div class="step-number">1</div>
-      <h4>Go to the repo</h4>
-      <p>Navigate to github.com/nveigacoutinho-ops/pharmabot</p>
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Go to the repo</h4>
+        <p>Navigate to github.com/nveigacoutinho-ops/pharmabot</p>
+      </div>
     </div>
     <div class="step">
-      <div class="step-number">2</div>
-      <h4>Look for the yellow banner</h4>
-      <p>After pushing a branch, GitHub shows a yellow banner: "Compare & pull request". Click it. If it's gone: Pull Requests tab → New Pull Request.</p>
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Look for the yellow banner</h4>
+        <p>After pushing a branch, GitHub shows a yellow banner: "Compare & pull request". Click it. If it's gone: Pull Requests tab → New Pull Request.</p>
+      </div>
     </div>
     <div class="step">
-      <div class="step-number">3</div>
-      <h4>Set the direction</h4>
-      <p>base: main (where code will go INTO). compare: your-branch (where code is coming FROM). Always double-check this.</p>
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Set the direction</h4>
+        <p>base: main (where code will go INTO). compare: your-branch (where code is coming FROM). Always double-check this.</p>
+      </div>
     </div>
     <div class="step">
-      <div class="step-number">4</div>
-      <h4>Write a clear title and description</h4>
-      <p>Title: what you did. Description: why you did it and what to look out for. Example title: "Add chatbot question loop to chatbot.py". Your teammate will thank you.</p>
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Write a clear title and description</h4>
+        <p>Title: what you did. Description: why you did it and what to look out for. Example title: "Add chatbot question loop to chatbot.py". Your teammate will thank you.</p>
+      </div>
     </div>
     <div class="step">
-      <div class="step-number">5</div>
-      <h4>Create and wait for review</h4>
-      <p>Click Create Pull Request. Your teammate reviews, comments, and approves. Once approved: Merge pull request → Confirm merge. Then clean up.</p>
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Create and wait for review</h4>
+        <p>Click Create Pull Request. Your teammate reviews, comments, and approves. Once approved: Merge pull request → Confirm merge. Then clean up.</p>
+      </div>
     </div>
   </div>
-  
-  <pre><code class="language-bash"># After merging:
-git checkout main          # go back to main
-git pull                   # get the merged code
-git branch -d feature-chatbot-engine   # delete old branch</code></pre>
+
+  <div class="code-block">
+<span style="color: #fbbf24;"># After merging:</span>
+git checkout main          <span style="color: #fbbf24;"># go back to main</span>
+git pull                   <span style="color: #fbbf24;"># get the merged code</span>
+git branch -d feature-chatbot-engine   <span style="color: #fbbf24;"># delete old branch</span>
+  </div>
 
   <div class="callout callout-green">
     <strong>✅ Even in a 2-person project: always create a PR.</strong> Never merge your own branch directly. The review step — even a quick look — catches mistakes that you miss because you wrote the code.
   </div>
+  </div>
 </section>
 
 <!-- SECTION: Collaboration -->
-<section id="collaboration" class="section-container">
-  <div class="section-label">Part 8 · How to Work Together</div>
+<section id="collaboration">
+  <div class="container">
+  <span class="section-label">Part 8 · How to Work Together</span>
   <h2>Two Ways to Collaborate Safely</h2>
-  
+
   <p>There's no single right way to split work as beginners. Here are two models. Pick the one that fits your situation — or use both depending on the task.</p>
-  
+
   <div class="two-col">
     <div class="model-card split">
       <div class="col-badge badge-blue">Model A — Split by File</div>
@@ -1847,8 +2312,8 @@ git branch -d feature-chatbot-engine   # delete old branch</code></pre>
   </div>
   
   <h3>Safe rules for Model B (flexible)</h3>
-  
-  <div class="cards-grid four-col">
+
+  <div class="cards">
     <div class="card">
       <div class="card-icon">🗣️</div>
       <h4>Announce before starting</h4>
@@ -1874,23 +2339,25 @@ git branch -d feature-chatbot-engine   # delete old branch</code></pre>
   <div class="callout callout-blue">
     <strong>💡 For PharmaBot specifically:</strong> start with Model A (split by file). It's safer for beginners. Switch to Model B once you're comfortable with branches and PRs.
   </div>
+  </div>
 </section>
 
 <!-- SECTION: Team Split -->
-<section id="team-split" class="section-container">
-  <div class="section-label">Part 9 · PharmaBot Specific</div>
+<section id="team-split">
+  <div class="container">
+  <span class="section-label">Part 9 · PharmaBot Specific</span>
   <h2>Your Team Split for PharmaBot</h2>
   <p>The cleanest way to divide work with Model A — you almost never touch the same file.</p>
-  
+
   <div class="two-col">
     <div class="col-card person1">
       <div class="col-badge badge-blue">Person 1 — The Engine (Python)</div>
       <h3>Python Files</h3>
-      <pre><code>app/main.py
+      <div class="code-block">app/main.py
 app/chatbot.py
 app/tree_loader.py
 tests/test_chatbot.py
-tests/test_tree_loader.py</code></pre>
+tests/test_tree_loader.py</div>
       <p>Your job: Make the Python code work. Load a JSON tree, ask questions, handle answers, print a result.</p>
       <div class="pill-list">
         <span class="pill">feature-chatbot-engine</span>
@@ -1902,10 +2369,10 @@ tests/test_tree_loader.py</code></pre>
     <div class="col-card person2">
       <div class="col-badge badge-green">Person 2 — The Knowledge (JSON)</div>
       <h3>JSON Files</h3>
-      <pre><code>decision_tree/jams/J001_euclid_jam.json
+      <div class="code-block">decision_tree/jams/J001_euclid_jam.json
 decision_tree/jams/J002_automatic_loader_jam.json
 decision_tree/jams/J003_conveyor_jam.json
-decision_tree/sensors/S001_barcode_sensor.json</code></pre>
+decision_tree/sensors/S001_barcode_sensor.json</div>
       <p>Your job: Write the troubleshooting logic inside the JSON files. Define questions, answers, next steps, and resolutions.</p>
       <div class="pill-list">
         <span class="pill">feature-euclid-jam-tree</span>
@@ -1915,45 +2382,49 @@ decision_tree/sensors/S001_barcode_sensor.json</code></pre>
     </div>
   </div>
   
-  <div class="cards-grid three-col">
+  <div class="cards">
     <div class="card">
-      <div class="card-icon">🛡️</div>
-      <h4>Near-zero conflicts</h4>
-      <p>You almost never touch the same file.</p>
+      <span class="card-icon">🛡️</span>
+      <div class="card-title">Near-zero conflicts</div>
+      <p class="card-desc">You almost never touch the same file.</p>
     </div>
     <div class="card">
-      <div class="card-icon">🔄</div>
-      <h4>Work independently</h4>
-      <p>Both can build in parallel without waiting.</p>
+      <span class="card-icon">🔄</span>
+      <div class="card-title">Work independently</div>
+      <p class="card-desc">Both can build in parallel without waiting.</p>
     </div>
     <div class="card">
-      <div class="card-icon">🧱</div>
-      <h4>Placeholder pattern</h4>
-      <p>Person 1 can use a fake JSON while Person 2 builds the real ones.</p>
+      <span class="card-icon">🧱</span>
+      <div class="card-title">Placeholder pattern</div>
+      <p class="card-desc">Person 1 can use a fake JSON while Person 2 builds the real ones.</p>
     </div>
+  </div>
   </div>
 </section>
 
 <!-- SECTION: Status -->
-<section id="status" class="section-container">
-  <div class="section-label">Part 10 · Your Real-Time Compass</div>
+<section id="git-status">
+  <div class="container">
+  <span class="section-label">Part 10 · Your Real-Time Compass</span>
   <h2>Understanding Git Status at All Times</h2>
   <p>Run git status constantly. It's completely harmless — it just reads and reports. It never changes anything.</p>
-  
+
   <div class="two-col">
-    <div>
-      <pre><code class="language-bash"># See what's changed and what's staged
+    <div class="col-card">
+      <div class="code-block" style="margin:0;">
+<span style="color: #fbbf24;"># See what's changed and what's staged</span>
 git status
 
-# See your recent commits
+<span style="color: #fbbf24;"># See your recent commits</span>
 git log --oneline
 
-# See what changed in the last commit
-git log -1 -p</code></pre>
+<span style="color: #fbbf24;"># See what changed in the last commit</span>
+git log -1 -p</div>
     </div>
-    
-    <div>
-      <table class="status-table">
+
+    <div class="col-card">
+      <div class="table-wrap" style="margin:0;">
+      <table>
         <thead>
           <tr>
             <th>What you see</th>
@@ -1987,81 +2458,91 @@ git log -1 -p</code></pre>
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
+  </div>
   </div>
 </section>
 
 <!-- SECTION: Conflicts -->
-<section id="conflicts" class="section-container">
-  <div class="section-label">Part 11 · When Things Collide</div>
+<section id="conflicts">
+  <div class="container">
+  <span class="section-label">Part 11 · When Things Collide</span>
   <h2>Resolving Merge Conflicts</h2>
   <p>A conflict happens when two people edit the exact same line of the same file on different branches. Git can't decide which version to keep, so it puts both in the file and asks you to choose.</p>
-  
+
   <div class="two-col">
-    <div>
-      <h3>What a conflict looks like in the file</h3>
-      <pre><code><<<<<<< HEAD
+    <div class="col-card">
+      <h3 style="margin-top:0;">What a conflict looks like in the file</h3>
+      <div class="code-block">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 def start_chatbot():
     print("Welcome to PharmaBot")
 =======
 def start_chatbot():
     print("PharmaBot Ready")
->>>>>>> feature-chatbot-engine</code></pre>
-      <div class="callout callout-blue">
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-chatbot-engine</div>
+      <div class="callout callout-blue" style="margin-bottom:0;">
         <strong>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</strong> = what's in main. <strong>=======</strong> separator. <strong>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</strong> = what's in your branch.
       </div>
     </div>
-    
-    <div>
-      <h3>How to fix it — 3 steps</h3>
-      <div class="steps-container">
+
+    <div class="col-card">
+      <h3 style="margin-top:0;">How to fix it — 3 steps</h3>
+      <div class="steps" style="margin:0;">
         <div class="step">
-          <div class="step-number">1</div>
-          <h4>Delete all conflict markers</h4>
-          <p>Remove the &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, =======, and &gt;&gt;&gt;&gt;&gt;&gt;&gt; lines. Keep only the code you want.</p>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Delete all conflict markers</h4>
+            <p>Remove the &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD, =======, and &gt;&gt;&gt;&gt;&gt;&gt;&gt; lines. Keep only the code you want.</p>
+          </div>
         </div>
         <div class="step">
-          <div class="step-number">2</div>
-          <h4>Edit the file to what it should be</h4>
-          <p>Either keep one version, or combine both into something correct. Save the file.</p>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Edit the file to what it should be</h4>
+            <p>Either keep one version, or combine both into something correct. Save the file.</p>
+          </div>
         </div>
         <div class="step">
-          <div class="step-number">3</div>
-          <h4>Stage, commit, push</h4>
-          <pre><code class="language-bash">git add .
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Stage, commit, push</h4>
+            <div class="code-block">git add .
 git commit -m "resolve conflict in chatbot.py"
-git push</code></pre>
+git push</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <h3>How to prevent most conflicts</h3>
-  
-  <div class="cards-grid three-col">
+
+  <div class="cards">
     <div class="card">
-      <div class="card-icon">🗂️</div>
-      <h4>Stick to your assigned files</h4>
-      <p>If you follow the team split, conflicts are nearly impossible.</p>
+      <span class="card-icon">🗂️</span>
+      <div class="card-title">Stick to your assigned files</div>
+      <p class="card-desc">If you follow the team split, conflicts are nearly impossible.</p>
     </div>
     <div class="card">
-      <div class="card-icon">⬇️</div>
-      <h4>Pull every session</h4>
-      <p>git pull at the start brings in what your teammate pushed. The longer you wait, the more divergence.</p>
+      <span class="card-icon">⬇️</span>
+      <div class="card-title">Pull every session</div>
+      <p class="card-desc">git pull at the start brings in what your teammate pushed. The longer you wait, the more divergence.</p>
     </div>
     <div class="card">
-      <div class="card-icon">💬</div>
-      <h4>Communicate</h4>
-      <p>Before touching a file the other person may be editing, send a message. 10 seconds of communication prevents 20 minutes of conflict resolution.</p>
+      <span class="card-icon">💬</span>
+      <div class="card-title">Communicate</div>
+      <p class="card-desc">Before touching a file the other person may be editing, send a message. 10 seconds of communication prevents 20 minutes of conflict resolution.</p>
     </div>
+  </div>
   </div>
 </section>
 
 
 <!-- GITHUB INTERFACE -->
-<section id="interface">
+<section id="github-ui">
   <div class="container">
-    <div class="section-label">Part 12 · The Website Itself</div>
+    <span class="section-label">Part 12 · The Website Itself</span>
     <h2>The GitHub Interface Explained</h2>
     <p>When you're on <code>github.com/nveigacoutinho-ops/pharmabot</code>, here is what every tab does and how you will actually use it.</p>
 
@@ -2115,48 +2596,44 @@ git push</code></pre>
 <!-- COLLABORATORS -->
 <section id="collaborators">
   <div class="container">
-    <div class="section-label">Part 13 · Invite Your Teammate</div>
+    <span class="section-label">Part 13 · Invite Your Teammate</span>
     <h2>Adding Your Collaborator</h2>
     <p>Both team members need Write access before either can push branches or create pull requests. Do this once when you set up the project.</p>
 
     <div class="steps" style="margin-top:28px;max-width:600px;">
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-line"></div>
-        <div class="step-body">
-          <div class="step-title">Open Settings</div>
-          <div class="step-desc">Click <strong>Settings</strong> in the top navigation bar of the repo page. It's at the far right of the tabs.</div>
+        <div class="step-content">
+          <h4>Open Settings</h4>
+          <p>Click <strong>Settings</strong> in the top navigation bar of the repo page. It's at the far right of the tabs.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-line"></div>
-        <div class="step-body">
-          <div class="step-title">Click Collaborators</div>
-          <div class="step-desc">In the left sidebar under "Access". You may be asked to confirm your GitHub password.</div>
+        <div class="step-content">
+          <h4>Click Collaborators</h4>
+          <p>In the left sidebar under "Access". You may be asked to confirm your GitHub password.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-line"></div>
-        <div class="step-body">
-          <div class="step-title">Click Add people</div>
-          <div class="step-desc">Search by your teammate's GitHub username or email address.</div>
+        <div class="step-content">
+          <h4>Click Add people</h4>
+          <p>Search by your teammate's GitHub username or email address.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <div class="step-line"></div>
-        <div class="step-body">
-          <div class="step-title">They accept the email invite</div>
-          <div class="step-desc">GitHub sends them an invitation email. They <strong>must click Accept</strong> before they can contribute. Until they do, they have read-only access.</div>
+        <div class="step-content">
+          <h4>They accept the email invite</h4>
+          <p>GitHub sends them an invitation email. They <strong>must click Accept</strong> before they can contribute. Until they do, they have read-only access.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">5</div>
-        <div class="step-body">
-          <div class="step-title">Set Write access</div>
-          <div class="step-desc">Both members should have <strong>Write</strong> access. Write access means both can push branches, create pull requests, and merge approved PRs.</div>
+        <div class="step-content">
+          <h4>Set Write access</h4>
+          <p>Both members should have <strong>Write</strong> access. Write access means both can push branches, create pull requests, and merge approved PRs.</p>
         </div>
       </div>
     </div>
@@ -2170,7 +2647,7 @@ git push</code></pre>
 <!-- BEFORE YOU PANIC -->
 <section id="panic">
   <div class="container">
-    <div class="section-label">Part 14 · When Things Feel Wrong</div>
+    <span class="section-label">Part 14 · When Things Feel Wrong</span>
     <h2>Before You Panic — The 5-Second Checklist</h2>
     <p>90% of beginner Git problems come from one of these six things. Before assuming something is broken, run through this list.</p>
 
@@ -2261,7 +2738,7 @@ git push</code></pre>
 <!-- COMMON MISTAKES -->
 <section id="mistakes">
   <div class="container">
-    <div class="section-label">Part 15 · Recovery Guide</div>
+    <span class="section-label">Part 15 · Recovery Guide</span>
     <h2>Common Mistakes &amp; How to Fix Them</h2>
     <p>You will encounter at least one of these. Every developer has. Bookmark this section.</p>
 
@@ -2373,9 +2850,9 @@ git push</code></pre>
 </section>
 
 <!-- COMMIT MESSAGES -->
-<section id="commits">
+<section id="commit-messages">
   <div class="container">
-    <div class="section-label">Part 16 · Write for Future You</div>
+    <span class="section-label">Part 16 · Write for Future You</span>
     <h2>Commit Message Rules</h2>
     <p>This matters more than it seems. After 3 months you'll look back at the git history and either thank yourself or be completely lost. A commit message is a note to your future self and your teammate.</p>
 
@@ -2427,7 +2904,7 @@ git push</code></pre>
 <!-- FIRST STEPS -->
 <section id="first-steps">
   <div class="container">
-    <div class="section-label">Part 17 · Start Here Tomorrow</div>
+    <span class="section-label">Part 17 · Start Here Tomorrow</span>
     <h2>Recommended First Steps for PharmaBot</h2>
     <p>Do these in order. Person 2 starts first while Person 1 builds in parallel — no waiting. Your first real milestone: one JSON tree + one end-to-end Python run through it.</p>
 
@@ -2511,7 +2988,7 @@ git push</code></pre>
 <!-- REFERENCE CARD -->
 <section id="reference" style="background:var(--surface);">
   <div class="container">
-    <div class="section-label">Part 18 · Print This</div>
+    <span class="section-label">Part 18 · Print This</span>
     <h2>The Complete Reference Card</h2>
     <p>Everything you need, in one place. Keep this open in a second tab while you work.</p>
 
