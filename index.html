@@ -1482,11 +1482,11 @@
       line-height: 1.6;
     }
 
-    /* Timeline in first-steps: override to vertical dot layout */
+    /* Timeline in first-steps: compact dot + content layout */
     #first-steps .timeline {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 0;
       margin: 0;
     }
 
@@ -1494,11 +1494,37 @@
       display: grid;
       grid-template-columns: 20px 1fr;
       gap: 14px;
-      padding-bottom: 0;
+      padding-bottom: 24px;
+      position: relative;
     }
 
     #first-steps .tl-item:not(:last-child)::after {
-      display: none;
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 18px;
+      width: 2px;
+      height: calc(100% - 6px);
+      background: var(--border);
+    }
+
+    #first-steps .tl-content h4 {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    #first-steps .tl-content p {
+      margin-bottom: 0;
+      color: var(--text2);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    #first-steps .tl-content .code-block {
+      margin-top: 6px;
+      margin-bottom: 0;
     }
 
     /* Person card styles */
@@ -2914,26 +2940,34 @@ git push</div>
         <div class="timeline">
           <div class="tl-item">
             <div class="tl-dot"></div>
-            <div class="tl-person">Step 1 — Create branch</div>
-            <div class="code-block" style="font-size:0.78rem;margin-top:6px;"><span class="cmd">git checkout</span> <span class="flag">-b</span> feature-j001-euclid-jam</div>
+            <div class="tl-content">
+              <h4>Step 1 — Create branch</h4>
+              <div class="code-block" style="font-size:0.78rem;margin-top:6px;"><span class="cmd">git checkout</span> <span class="flag">-b</span> feature-j001-euclid-jam</div>
+            </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot"></div>
-            <div class="tl-person">Step 2 — Write the JSON</div>
-            <div class="tl-desc">Add real troubleshooting content to <code>decision_tree/jams/J001_euclid_jam.json</code>. Define questions, answers, next-step pointers, and resolution messages.</div>
+            <div class="tl-content">
+              <h4>Step 2 — Write the JSON</h4>
+              <p>Add real troubleshooting content to <code>decision_tree/jams/J001_euclid_jam.json</code>. Define questions, answers, next-step pointers, and resolution messages.</p>
+            </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot"></div>
-            <div class="tl-person">Step 3 — Commit &amp; push</div>
-            <div class="code-block" style="font-size:0.78rem;margin-top:6px;">
+            <div class="tl-content">
+              <h4>Step 3 — Commit &amp; push</h4>
+              <div class="code-block" style="font-size:0.78rem;margin-top:6px;">
 <span class="cmd">git add</span> .
 <span class="cmd">git commit</span> <span class="flag">-m</span> <span class="str">"write J001 euclid jam decision tree"</span>
 <span class="cmd">git push</span> <span class="flag">-u</span> origin feature-j001-euclid-jam</div>
+            </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot"></div>
-            <div class="tl-person">Step 4 — Create PR on GitHub</div>
-            <div class="tl-desc">base: <code>main</code> ← compare: <code>feature-j001-euclid-jam</code>. Title: "Write J001 Euclid jam decision tree".</div>
+            <div class="tl-content">
+              <h4>Step 4 — Create PR on GitHub</h4>
+              <p>base: <code>main</code> ← compare: <code>feature-j001-euclid-jam</code>. Title: "Write J001 Euclid jam decision tree".</p>
+            </div>
           </div>
         </div>
       </div>
@@ -2943,26 +2977,34 @@ git push</div>
         <div class="timeline">
           <div class="tl-item">
             <div class="tl-dot" style="background:var(--blue)"></div>
-            <div class="tl-person">Step 1 — Create branch</div>
-            <div class="code-block" style="font-size:0.78rem;margin-top:6px;"><span class="cmd">git checkout</span> <span class="flag">-b</span> feature-tree-loader</div>
+            <div class="tl-content">
+              <h4>Step 1 — Create branch</h4>
+              <div class="code-block" style="font-size:0.78rem;margin-top:6px;"><span class="cmd">git checkout</span> <span class="flag">-b</span> feature-tree-loader</div>
+            </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot" style="background:var(--blue)"></div>
-            <div class="tl-person">Step 2 — Write tree_loader.py</div>
-            <div class="tl-desc">Build <code>app/tree_loader.py</code> to open a JSON file and return its contents. Use a fake/placeholder JSON structure at first — Person 2 will fill in the real one.</div>
+            <div class="tl-content">
+              <h4>Step 2 — Write tree_loader.py</h4>
+              <p>Build <code>app/tree_loader.py</code> to open a JSON file and return its contents. Use a fake/placeholder JSON structure at first — Person 2 will fill in the real one.</p>
+            </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot" style="background:var(--blue)"></div>
-            <div class="tl-person">Step 3 — Commit &amp; push</div>
-            <div class="code-block" style="font-size:0.78rem;margin-top:6px;">
+            <div class="tl-content">
+              <h4>Step 3 — Commit &amp; push</h4>
+              <div class="code-block" style="font-size:0.78rem;margin-top:6px;">
 <span class="cmd">git add</span> .
 <span class="cmd">git commit</span> <span class="flag">-m</span> <span class="str">"build tree_loader to read JSON files"</span>
 <span class="cmd">git push</span> <span class="flag">-u</span> origin feature-tree-loader</div>
+            </div>
           </div>
           <div class="tl-item">
             <div class="tl-dot" style="background:var(--blue)"></div>
-            <div class="tl-person">Step 4 — Create PR on GitHub</div>
-            <div class="tl-desc">base: <code>main</code> ← compare: <code>feature-tree-loader</code>. Title: "Build tree_loader to read decision tree JSON files".</div>
+            <div class="tl-content">
+              <h4>Step 4 — Create PR on GitHub</h4>
+              <p>base: <code>main</code> ← compare: <code>feature-tree-loader</code>. Title: "Build tree_loader to read decision tree JSON files".</p>
+            </div>
           </div>
         </div>
       </div>
